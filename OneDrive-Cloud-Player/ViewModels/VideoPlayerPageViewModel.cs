@@ -220,7 +220,7 @@ namespace OneDrive_Cloud_Player.ViewModels
             //Retrieve the download URL from the drive item to be used for the video.
             string downloadURL = (string)driveItem.AdditionalData["@microsoft.graph.downloadUrl"];
             //Print the download url of the file.
-            Debug.WriteLine("Download UR: " + downloadURL);
+            Debug.WriteLine("Download URL: " + downloadURL);
             return downloadURL;
         }
 
