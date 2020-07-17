@@ -193,7 +193,7 @@ namespace OneDrive_Cloud_Player.ViewModels
                             if (!IsSeeking)
                             {
                                 // Sometimes the mediaPlayer is still null when you exist the videoplayer page and this still gets called.
-                                if(mediaPlayer != null)
+                                if (mediaPlayer != null)
                                 {
                                     TimeLineValue = mediaPlayer.Time;
                                 }
@@ -217,8 +217,11 @@ namespace OneDrive_Cloud_Player.ViewModels
         {
             var driveItem = await graphHelper.GetItemInformationAsync(videoPlayerArgumentWrapper.DriveId, videoPlayerArgumentWrapper.CachedDriveItem.ItemId);
 
-            //Retrieve the download URL from the drive item to be used for the video,
-            return (string)driveItem.AdditionalData["@microsoft.graph.downloadUrl"];
+            //Retrieve the download URL from the drive item to be used for the video.
+            string downloadURL = (string)driveItem.AdditionalData["@microsoft.graph.downloadUrl"];
+            //Print the download url of the file.
+            Debug.WriteLine("Download UR: " + downloadURL);
+            return downloadURL;
         }
 
         /// <summary>
